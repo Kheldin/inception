@@ -10,3 +10,15 @@ services:
     ports:
       - "443:443"
     restart: on-failure
+  
+  myphpfpm:
+    image: php:fpm-alpine
+
+
+volumes:
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/kacherch/data/wordpress
