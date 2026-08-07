@@ -11,7 +11,7 @@ RUN mkdir -p /var/www/html
 RUN chmod 755 /var/www/html
 RUN chown -R nginx:nginx /var/www/html
 
-COPY conf /etc/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 443
 
