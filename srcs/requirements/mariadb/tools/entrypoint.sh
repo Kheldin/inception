@@ -1,5 +1,8 @@
 #!/bin/sh
 
+mkdir -p /run/mysqld
+chown -R mysql:mysql /run/mysqld
+
 if [ ! -d "/var/lib/mysql/mysql" ]; then
 	echo "Initializing the database..."
 	
@@ -16,4 +19,4 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 	mysqladmin -u root -p${SQL_ROOT_PASSWORD} shutdown
 fi
 
-exec mysqld_safe --datadir=/var/lib/mysql
+exec mariadbd --user=mysql --datadir=/var/lib/mysql
