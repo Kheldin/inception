@@ -3,6 +3,9 @@
 mkdir -p /run/mysqld
 chown -R mysql:mysql /run/mysqld
 
+SQL_PASSWORD=$(cat /run/secrets/db_password)
+SQL_ROOT_PASSWORD=$(cat /run/secrets/db_root_password)
+
 if [ ! -d "/var/lib/mysql/mysql" ]; then
 	echo "Initializing the database..."
 	
